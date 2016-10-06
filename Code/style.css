@@ -1,0 +1,25 @@
+.gamebody {
+  background-image: url(../images/Roadtripjourney.png);
+  background-repeat: no-repeat;
+}
+
+.board {
+    display: flex;    
+    flex-direction: row-reverse;
+    position: absolute;
+
+}
+
+
+#car {
+    height: 18%; 
+    width: 18%;
+    position: absolute;
+    margin-top: 10%;
+
+}
+
+img {
+    height: 125px;
+    width: 125px;
+}
