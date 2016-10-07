@@ -1,3 +1,30 @@
+.landingHead{
+    display: left block;
+}
+
+
+ #mclovin {
+    height:270px;
+    width:480px;
+}
+
+ #nameBox {
+    height:250px;
+    width:500px;
+    border-radius: 15px;
+    background-color: gray;
+    text-align: center;
+    float: right;
+    margin-right: 380px;
+}
+
+
+
+
+
+
+
+
 .gamebody {
   background-image: url(../images/Roadtripjourney.png);
   background-repeat: no-repeat;
@@ -6,8 +33,6 @@
 .board {
     display: flex;    
     flex-direction: row-reverse;
-    position: absolute;
-
 }
 
 
@@ -19,7 +44,18 @@
 
 }
 
-img {
-    height: 125px;
-    width: 125px;
+
+/*.modal {
+    display: none; /*keeps modal hidden until opened 
+    height: 100%;
+    width: 100%;
+    padding-top: 200px;
+    position: fixed;
+    
 }
+.trivia-content {
+   background-color: #f1f442;
+   text-align: center;
+   display: table-row;
+}*/
+
