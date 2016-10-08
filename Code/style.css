@@ -1,16 +1,20 @@
+.landing {
+    background-color: mediumseagreen;
+    font-family: sans-serif;
+}
 .landingHead{
     display: left block;
+    
 }
-
 
  #mclovin {
     height:270px;
     width:480px;
 }
-
  #nameBox {
-    height:250px;
-    width:500px;
+    font-family: sans-serif;
+    height:40%;
+    width:25%;
     border-radius: 15px;
     background-color: gray;
     text-align: center;
@@ -25,37 +29,38 @@
 
 
 
-.gamebody {
-  background-image: url(../images/Roadtripjourney.png);
-  background-repeat: no-repeat;
-}
 
 .board {
-    display: flex;    
-    flex-direction: row-reverse;
+    background-image: url(../images/Roadtripjourney.png);
+    background-size: 800px;
+    background-repeat: no-repeat;
+    width:800px;
+    height:600px;  
+    /*display: flex;    
+    flex-direction: row-reverse;*/
+    float:left;
 }
 
 
 #car {
-    height: 18%; 
-    width: 18%;
+    height: 125px; 
+    width: 125px;
     position: absolute;
     margin-top: 10%;
-
 }
 
 
-/*.modal {
-    display: none; /*keeps modal hidden until opened 
+.modal {
+    /*display: none; keeps modal hidden until opened 
     height: 100%;
     width: 100%;
     padding-top: 200px;
-    position: fixed;
+    position: fixed;*/
     
 }
 .trivia-content {
    background-color: #f1f442;
    text-align: center;
    display: table-row;
-}*/
+}
 

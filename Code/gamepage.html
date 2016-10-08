@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <title>Roadtrippin'</title>
   <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>-->
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="../Vendor/jquery-ui-1.12.1.custom/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+  <script src="../Vendor/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
   <script src="script.js" type="text/javascript"></script>
 </head>
 
@@ -24,13 +23,18 @@
   <div id="triviaModal" class="modal">
     <!-- Modal content -->
     <div class="trivia-content">
-      <p class="trivia">Some text in the Modal..</p>  
-      <input type="radio"><br>True<br>
-      <input type="radio"><br>False<br>
+      <p class="trivia"></p>
+     <label>
+      <input name="answer" type="radio" value="True">True
+      </label>
+      <label>
+      <input name="answer" type="radio" value="False">False
+      </label>
+      <button>Submit</button>
     </div>
-    
-      
-   
+
+
+
 
   </div>
 
