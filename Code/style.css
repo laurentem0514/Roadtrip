@@ -1,4 +1,4 @@
-.landing {
+/*.landing {
     background-color: mediumseagreen;
     font-family: sans-serif;
 }
@@ -21,33 +21,41 @@
     float: right;
     margin-right: 380px;
 }
+*/
 
 
 
 
 
-
-
+.gameHeader {
+    width: 70%;
+    background-color: #428cf4;
+    color: navajowhite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
 
 
 .board {
     background-image: url(../images/Roadtripjourney.png);
-    background-size: 800px;
+    background-size: 1000px;
     background-repeat: no-repeat;
-    width:800px;
-    height:600px;  
-    /*display: flex;    
-    flex-direction: row-reverse;*/
+    width:1000px;
+    height:800px;  
     float:left;
 }
 
+.car {
+    margin-bottom: 10%;
+}
 
 #car {
     height: 125px; 
     width: 125px;
     position: absolute;
-    margin-top: 10%;
 }
+
+
 
 
 .modal {
@@ -58,9 +66,19 @@
     position: fixed;*/
     
 }
+
+
 .trivia-content {
-   background-color: #f1f442;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   background-color: #42f4f1;
    text-align: center;
-   display: table-row;
 }
 
+    .trivia-content .buttons {
+        display: table-row;
+    }
+
+
+.gameState {
+    display: none;
+}

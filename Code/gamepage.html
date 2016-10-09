@@ -12,33 +12,54 @@
 </head>
 
 <body class="gamebody">
+  <header class="gameHeader">
+    <h1>Hi, Player</h1>
+    <h2>Let's take a road trip</h2>
+  </header>
+
   <div class="board">
-    <div id="car">
-      <img src="../images/racecar.gif" alt="car">
+    <div class="car">
+      <img id="car" src="../images/racecar.gif" alt="car">
     </div>
   </div>
 
 
 
+
+
+
+  <button id="startGameButton">I'm Ready to play!</button>
 
   <div id="triviaModal" class="modal">
     <!-- Modal content -->
-    <div class="trivia-content">
+    <div class="trivia-content gameState" id="trivia">
       <div id="timer"></div>
       <p class="trivia"></p>
-      <label>
-      <input name="answer" type="radio" value="True">True
-      </label>
-      <label>
-      <input name="answer" type="radio" value="False">False
-      </label>
-      <button>Submit</button>
+      <div class="buttons">
+        <label>
+        <input name="answer" type="radio" value="True"/>True
+        </label>
+        <label>
+        <input name="answer" type="radio" value="False"/>False
+        </label>
+        <button>Submit</button>
+      </div>
+    </div>
+      
+
+
+    <div class="gameState" id="timesUp">
+      <p>Sorry, time's up! Try again.</p>
+    </div>
+    <div class="gameState" id="wrongAnswer">
+      <p>Sorry, wrong answer! Try again.</p>
+    </div>
+    <div class="gameState" id="congrats">
+      <p>Congratulations! You surived Roadtrip Trivia!</p>
     </div>
 
-   
 
-
-  </div>
+ </div>
 
 
 
