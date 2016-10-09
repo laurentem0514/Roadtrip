@@ -19,65 +19,92 @@ var moveSpeed = 1000; // 1sec
 var timeToAnswer = 5000; //5sec
 var answerTimer;
 
-function go(){
-	 if (destinations){
-   		currentStop = destinations.shift();       
-       
-       $('#car').animate({left: currentStop.X + 'px', top: currentStop.Y + 'px'}, moveSpeed);
-       
-       // Schedule question after move animation is over
-       setTimeout(function(){
-       		askQuestion(currentStop);
-       },moveSpeed);
-       
-       answerTimer = setTimeout(function(){
-       		getAnswer(currentStop);
-       },timeToAnswer);
-   }
+function go() {
+    if (destinations) {
+        currentStop = destinations.shift();
+
+        if (currentStop) {
+            //moves car to currentStop based on x,y coords
+            $('#car').animate({ left: currentStop.X + 'px', top: currentStop.Y + 'px' }, moveSpeed);
+
+            // Schedule question after move animation is over
+            setTimeout(function () {
+                askQuestion(currentStop);
+            }, moveSpeed);
+
+            // Schedule check answer after move animation is complete and timeToAnswer has expired
+            answerTimer = setTimeout(function () {
+                checkAnswer(currentStop);
+            }, timeToAnswer + moveSpeed);
+        }
+
+
+    }
 }
 
-function askQuestion(destination){
-	$('.trivia').text(destination.triviaQuestion);
-  
-  // to do start + display timer
-}
+function askQuestion(destination) {
+    $('.trivia').text(destination.triviaQuestion);
 
-
-
-
-
-
-function getAnswer(){
-	var answer = $('input:radio[name=answer]:checked').val();
-  
-  if (answer === currentStop.correctAnswer) { 
-      // move to next
-      go();
-  }
-  else {
-  		alert("Sorry wrong answer");
-      
-      // to do start over
-  }
+    // to do start + display timer
+    initializeTimer('#timer', timeToAnswer);
 }
 
 
 
+function checkAnswer() {
+    var answer = $('input:radio[name=answer]:checked').val();
 
-$(function(){
-//event listener for submit button for getAnswer function and clear timer
-$('#triviaModal button').on('click', function(){
-    clearTimeout(answerTimer);
-    getAnswer();
-}); 
+    if (answer === currentStop.correctAnswer) {
+        // move to next
+        go();
+    }
+    else {
+        alert("Sorry wrong answer");
 
-  go();
+        // to do start over
+    }
+}
 
-	//$('#dialog').dialog({ autoOpen: false});
-  
-	//$("button").on("click", function(){
-  //	$('#dialog').dialog('open');
-  //});
+
+
+
+function initializeTimer(id, duration) {
+    var timer = $(id);
+    var remainingSeconds = Math.floor((duration / 1000) % 60);
+
+    // display timer
+    if (remainingSeconds > 0) {
+        timer.text('seconds: ' + remainingSeconds);
+        remainingSeconds--;
+    }
+
+
+    // schedule timer updates
+    if (remainingSeconds > 0) {
+        var timeinterval = setInterval(function () {
+            timer.text('seconds: ' + remainingSeconds);
+            remainingSeconds--;
+            if (remainingSeconds <= 0) {
+                clearInterval(timeinterval);
+            }
+        }, 1000);
+    }
+}
+
+$(function () {
+    //event listener for submit button for checkAnswer function and clear timer
+    $('#triviaModal button').on('click', function () {
+        clearTimeout(answerTimer);
+        checkAnswer();
+    });
+
+    go();
+
+    //$('#dialog').dialog({ autoOpen: false});
+
+    //$("button").on("click", function(){
+    //	$('#dialog').dialog('open');
+    //});
 
 });
 
@@ -85,10 +112,10 @@ $('#triviaModal button').on('click', function(){
 
 
     // animate car from right to left using coords 
-    
+
 
     //destinationQ&A load into modal and show modal
-    
+
 
 
     //for each item in destination:
@@ -102,5 +129,6 @@ $('#triviaModal button').on('click', function(){
 
         // if it is last Destination 
          //display winning message
-        
+
         //ask player if they want to play again (input)
+
