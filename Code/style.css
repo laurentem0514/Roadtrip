@@ -52,25 +52,19 @@
 #car {
     height: 125px; 
     width: 125px;
+    left: 1000px;
+    top: 100px;
     position: absolute;
 }
 
 
-
-
-.modal {
-    /*display: none; keeps modal hidden until opened 
-    height: 100%;
-    width: 100%;
-    padding-top: 200px;
-    position: fixed;*/
-    
+#modal{
+    background-color: #edf7f7;
 }
 
 
 .trivia-content {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   background-color: #42f4f1;
    text-align: center;
 }
 

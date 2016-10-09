@@ -15,7 +15,7 @@ var destinationsData = [
 
 //make a copy of destinationsData to work with the data called destinations
 var destinations = destinationsData.slice(0);
-//other global variables to for reuse
+//other global variables for reuse
 var currentStop;
 var moveSpeed = 1000; // 1sec
 var timeToAnswer = 5000; //5sec
@@ -27,6 +27,8 @@ function go() {
         currentStop = destinations.shift();
 
         if (currentStop) {
+            closeModal();
+
             //moves car to currentStop based on x,y coords
             $('#car').animate({ left: currentStop.X + 'px', top: currentStop.Y + 'px' }, moveSpeed);
 
@@ -48,6 +50,7 @@ function go() {
 }
 
 function askQuestion(destination) {
+    showModal();
     displayGameState('#trivia');
     $('.trivia').text(destination.triviaQuestion);
     $('#trivia img').attr({src: '../Images/Stops/' + destination.imageName, alt: destination.name});
@@ -57,7 +60,6 @@ function askQuestion(destination) {
     initializeTimer('#timer', timeToAnswer);
 }
 
-
 //displays game state to player based on different states of game 
 function displayGameState(selector){
     //hide all 
@@ -65,7 +67,6 @@ function displayGameState(selector){
     //display selector
     $(selector).show();
 }
-
 
 //checks answer and takes parameter of 'who' is using it
 function checkAnswer(source) {
@@ -84,7 +85,6 @@ function checkAnswer(source) {
         }
     }
 }
-
 
 //this creates the timer
 function initializeTimer(id, duration) {
@@ -109,25 +109,55 @@ function initializeTimer(id, duration) {
     }
 }
 
+//open and close modal
+function showModal(){
+    $('#modal').dialog("open");
+
+}
+
+function closeModal(){
+    $('#modal').dialog('close');
+}
+
+//for getting form data from url
+function getQueryStringObject() {
+  var queryString = window.location.search.substr(1).split('&'); 
+  var data = {};
+
+  for (var i = 0; i < queryString.length; i++){
+    // k=v
+    var parts = queryString[i].split('=');
+    if (parts.length === 2){
+      var key = parts[0];
+      var value = parts[1];
+      data[key] = value;
+    }
+  }
+
+  return data;
+}
 
 
 $(function () {
+    //initialize modal
+    $('#modal').dialog({ autoOpen: false, modal: true, width: 600});
+
+    //begin to run 'go' function when ready button clicked
+    $('#startGameButton').on('click', function(){
+        go();
+    });
+
     //event listener for submit button for checkAnswer function and clear timer
-    $('#triviaModal button').on('click', function () {
+    $('#trivia button').on('click', function () {
         clearTimeout(answerTimer);
         checkAnswer('button');
     });
 
-    go();
-
-    //$('#dialog').dialog({ autoOpen: false});
-
-    //$("button").on("click", function(){
-    //	$('#dialog').dialog('open');
-    //});
+    //gets input from landing page and displays in header
+    var queryString = getQueryStringObject();
+    $('.player-name').text(queryString.name || 'Anonymous Player');
+    
 
 });
 
-
-        //ask player if they want to play again (input)
 
