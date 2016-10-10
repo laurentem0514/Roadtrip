@@ -1,10 +1,13 @@
 # Roadtrip
 TO DO 
-- style modal (including radio and submit buttons)
-- style landing page with form
-- add header to game page to display form info from landing page
+
+- style landing page with form - flexbox
+
 
 - send player back to start on time out AND on wrong answer
-- position car
+- position car - decide on background size and find coords again per state
+- change timer duration
+
+
 
 - game instructions
