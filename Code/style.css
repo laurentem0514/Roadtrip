@@ -2,6 +2,19 @@ body{
     background: url(../images/boardbackground.jpg) repeat;  
 }
 
+.landing-wrapper{
+    width: 1200px;
+    margin: 0 auto;
+    background-image: url(../images/landing-background.jpg);
+    height: 800px;
+    background-size: 1200px;
+    border-radius: 15px;
+}
+
+    .landing-wrapper header{
+        text-align: center;
+    }
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -9,13 +22,12 @@ body{
     background-color: mediumseagreen;
     font-family: sans-serif;
 }
-/*.landingHead{
-    display: left block;  
-}*/
+
 
  #mclovin {
     height:270px;
     width:480px;
+    border-radius: 20px;
 }
  #nameBox {
     font-family: sans-serif;
@@ -28,8 +40,10 @@ body{
     padding:5px;
 }
  #input{
-     margin: 7px;
-     border-radius: 5px;
+    margin: 7px;
+    border-radius: 5px;
+    border: 1px solid skyblue;
+    box-shadow: 0 0 8px;
  }
 
 .button {
