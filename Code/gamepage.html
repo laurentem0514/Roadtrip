@@ -7,19 +7,18 @@
   <link rel="stylesheet" href="../Vendor/jquery-ui-1.12.1/jquery-ui.css" type="text/css">
   <link rel="stylesheet" href="../Vendor/jquery-ui-1.12.1/jquery-ui.structure.css" type="text/css">
   <link rel="stylesheet" href="style.css" type="text/css">
-  
+
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-  
+
   <script src="../Vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
   <script src="script.js" type="text/javascript"></script>
 </head>
 
-<body class="gamebody">
+<body>
   <header class="gameHeader">
-    <h1>Hi, <span class="player-name"></span>!</h1>
-    <h2>Let's take a road trip</h2>
-    <button id="startGameButton">I'm Ready to Play!</button>
+    <h1>Hi, <span class="player-name"></span>! Let's take a ROADTRIP</h1>
+    <button class="button" id="startGameButton">I'm Ready to Go!</button>
   </header>
 
   <div class="board">
@@ -27,35 +26,36 @@
       <img id="car" src="../images/racecar.gif" alt="car">
     </div>
   </div>
-  <div id="modal" title="">
+  <div id="modal" title="Quiz Me">
     <div class="modal-wrapper">
       <div class="trivia-content gameState" id="trivia">
         <div id="timer"></div>
         <img src="">
         <p class="trivia"></p>
-        <div class="buttons">
+        <div>
           <label>
-          <input name="answer" type="radio" value="True"/>True
-          </label>
+            <input class="button" name="answer" type="radio" value="True"/>True
+            </label>
           <label>
-          <input name="answer" type="radio" value="False"/>False
-          </label>
-          <button>Submit</button>
+            <input class="button" name="answer" type="radio" value="False"/>False
+            </label>
+          <button class="button">Submit</button>
         </div>
       </div>
       <div class="gameState" id="timesUp">
         <p>Sorry, time's up! Try again.</p>
+        <button class="button restart">Play Again</button>
       </div>
       <div class="gameState" id="wrongAnswer">
         <p>Sorry, wrong answer! Try again.</p>
+        <button class="button restart">Play Again</button>
       </div>
       <div class="gameState" id="congrats">
         <p>Congratulations! You surived Roadtrip Trivia!</p>
+        <button class="button restart">Play Again</button>
       </div>
     </div>
   </div>
-
-
 </body>
 
 </html>

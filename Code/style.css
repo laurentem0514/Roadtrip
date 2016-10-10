@@ -1,11 +1,17 @@
-/*.landing {
+body{
+    background: url(../images/boardbackground.jpg) repeat;  
+}
+
+.landing {
+    display: flex;
+    flex-direction: column;
+
     background-color: mediumseagreen;
     font-family: sans-serif;
 }
-.landingHead{
-    display: left block;
-    
-}
+/*.landingHead{
+    display: left block;  
+}*/
 
  #mclovin {
     height:270px;
@@ -13,55 +19,62 @@
 }
  #nameBox {
     font-family: sans-serif;
-    height:40%;
-    width:25%;
+    height:100px;
+    width:200px;;
     border-radius: 15px;
     background-color: gray;
     text-align: center;
     float: right;
-    margin-right: 380px;
+    padding:5px;
 }
-*/
+ #input{
+     margin: 7px;
+     border-radius: 5px;
+ }
 
-
-
+.button {
+    padding: 9px 15px;
+    border-radius: 15px;
+    border-color:#1b57b7;
+    background-color: #2e66c1;
+    color: #fcfdff;      
+}
 
 
 .gameHeader {
     width: 70%;
-    background-color: #428cf4;
-    color: navajowhite;
+    color: rebeccapurple;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+    padding: 10px 0;
+    margin-left: 16%;
 }
-
+    .gameHeader h1 {
+        display: inline-block;
+    }
 
 .board {
     background-image: url(../images/Roadtripjourney.png);
-    background-size: 1000px;
+    background-size: 1200px;
     background-repeat: no-repeat;
-    width:1000px;
-    height:800px;  
-    float:left;
+    width:1200px;
+    height:1000px;  
+    margin-left: 13%;
 }
 
-.car {
-    margin-bottom: 10%;
+.car {  
+    left: 1180px;
+    top: 111px;
+    position: relative;
 }
-
-#car {
-    height: 125px; 
-    width: 125px;
-    left: 1000px;
-    top: 100px;
-    position: absolute;
-}
-
+    .car img {
+      height: 125px; 
+      width: 125px;   
+    }
 
 #modal{
     background-color: #edf7f7;
 }
-
 
 .trivia-content {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -71,7 +84,6 @@
     .trivia-content .buttons {
         display: table-row;
     }
-
 
 .gameState {
     display: none;

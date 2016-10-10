@@ -1,16 +1,16 @@
-//might remove alt
+
 var destinationsData = [
-    { name: 'New York', X: 1175, Y: 260, triviaQuestion: 'There are over 840 miles of subway track in New York City.', correctAnswer: 'True', imageName: 'nyc.jpg'},
-    { name: 'Pennsylvania', X: 1060, Y: 300, triviaQuestion: 'Hershey, PA is nicknamed "The Sweetest Place On Earth"', correctAnswer: 'True', imageName: 'hersheypa.jpg' },
-    { name: 'Ohio', X: 1000, Y: 330, triviaQuestion: 'Cleveland was the first city in the world to have a public school system.', correctAnswer: 'False', imageName: 'clevelandoh.jpg' },
-    // { name: 'Indiana', X: 925, Y: 330, triviaQuestion: 'Santa Claus,IN receives over a half million letters and requests at Christmastime', correctAnswer: 'True', imageName: 'indiana.jpg' },
-    // { name: 'Illinois', X: 860, Y: 330, triviaQuestion: '"Twerking" is the official state dance of Illinois.', correctAnswer: 'False', imageName: 'illinois.jpg' },
-    // { name: 'Iowa', X: 755, Y: 300, triviaQuestion: 'The "Honeycrisp" variety of apple originated in Peru, Iowa', correctAnswer: 'False', imageName: 'iowa.jpg' },
-    // { name: 'Nebraska', X: 600, Y: 325, triviaQuestion: 'The Nebraska National Forest is the largest hand-planted forest in America.', correctAnswer: 'True', imageName: 'nebraska.jpg'},
-    // { name: 'Wyoming', X: 450, Y: 300, triviaQuestion: 'The majority of The Grand Canyon is in Wyoming', correctAnswer: 'False', imageName: 'wyoming.jpg' },
-    // { name: 'Utah', X: 320, Y: 330, triviaQuestion: 'The inventor of the television was born in Beaver, UT', correctAnswer: 'True', imageName: 'utah.jpg'},
-    // { name: 'Nevada', X: 230, Y: 330, triviaQuestion: 'Las Vegas has over 300,000 hotel rooms', correctAnswer: 'False', imageName: 'lasvegas.jpg' },
-    // { name: 'California', X: 150, Y: 430, triviaQuestion: 'California is home to the highest and lowest points in the continental U.S.', correctAnswer: 'True', imageName: 'california.jpeg'}
+    { name: 'New York', X: 1029, Y: 210, triviaQuestion: 'There are over 840 miles of subway track in New York City.', correctAnswer: 'True', imageName: 'nyc.jpg'},
+    { name: 'Pennsylvania', X: 940, Y: 243, triviaQuestion: 'Hershey, PA is nicknamed "The Sweetest Place On Earth"', correctAnswer: 'True', imageName: 'hersheypa.jpg' },
+    { name: 'Ohio', X: 887, Y: 268, triviaQuestion: 'Cleveland was the first city in the world to have a public school system.', correctAnswer: 'False', imageName: 'clevelandoh.jpg' },
+    { name: 'Indiana', X:815, Y: 271, triviaQuestion: 'Santa Claus,IN receives over a half million letters and requests at Christmastime', correctAnswer: 'True', imageName: 'indiana.jpg' },
+    { name: 'Illinois', X: 755, Y: 268, triviaQuestion: '"Twerking" is the official state dance of Illinois.', correctAnswer: 'False', imageName: 'illinois.jpg' },
+    { name: 'Iowa', X: 674, Y: 250, triviaQuestion: 'The "Honeycrisp" variety of apple originated in Peru, Iowa', correctAnswer: 'False', imageName: 'iowa.jpg' },
+    { name: 'Nebraska', X: 551, Y: 264, triviaQuestion: 'The Nebraska National Forest is the largest hand-planted forest in America.', correctAnswer: 'True', imageName: 'nebraska.jpg'},
+    { name: 'Wyoming', X: 392, Y: 239, triviaQuestion: 'The majority of The Grand Canyon is in Wyoming', correctAnswer: 'False', imageName: 'wyoming.jpg' },
+    { name: 'Utah', X: 296, Y: 279, triviaQuestion: 'The inventor of the television was born in Beaver, UT', correctAnswer: 'True', imageName: 'utah.jpg'},
+    { name: 'Nevada', X: 200, Y: 284, triviaQuestion: 'Las Vegas has over 300,000 hotel rooms', correctAnswer: 'False', imageName: 'lasvegas.jpg' },
+    { name: 'California', X: 138, Y: 368, triviaQuestion: 'California is home to the highest and lowest points in the continental U.S.', correctAnswer: 'True', imageName: 'california.jpeg'}
 ];
 
 //make a copy of destinationsData to work with the data called destinations
@@ -20,7 +20,10 @@ var currentStop;
 var moveSpeed = 1000; // 1sec
 var timeToAnswer = 5000; //5sec
 var answerTimer;
-
+var carOffsetX = -30;
+var carOffsetY = -95;
+var carInitialX = 1180;
+var carInitialY = 111; 
 
 function go() {
     if (destinations) {
@@ -29,8 +32,10 @@ function go() {
         if (currentStop) {
             closeModal();
 
-            //moves car to currentStop based on x,y coords
-            $('#car').animate({ left: currentStop.X + 'px', top: currentStop.Y + 'px' }, moveSpeed);
+            //moves car to currentStop based on x,y coords and offset
+            var x = currentStop.X + carOffsetX;
+            var y = currentStop.Y + carOffsetY;
+            $('.car').animate({ left: x + 'px', top: y + 'px' }, moveSpeed);
 
             // Schedule question after move animation is over
             setTimeout(function () {
@@ -137,6 +142,12 @@ function getQueryStringObject() {
   return data;
 }
 
+//resets destinations, moves car back to starting position and closes modal...brings player back to initial game state
+function restart() {
+    destinations = destinationsData.slice(0);
+     $('.car').animate({ left: carInitialX + 'px', top: carInitialY + 'px' }, moveSpeed);
+     closeModal();
+}
 
 $(function () {
     //initialize modal
@@ -156,6 +167,9 @@ $(function () {
     //gets input from landing page and displays in header
     var queryString = getQueryStringObject();
     $('.player-name').text(queryString.name || 'Anonymous Player');
+
+    //event listener for play again button
+    $('button.restart').on('click', restart);
     
 
 });
