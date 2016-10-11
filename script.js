@@ -135,12 +135,12 @@ function closeModal() {
     $('#modal').dialog('close');
 }
 
-//create an object from query string for easy access to keys and values
+//create an object from query string for easy access to keys and values - had some guidance with this from stackoverflow
 function getQueryStringObject() {
     var queryString = window.location.search.substr(1).split('&');
     var data = {};
 
-    // loop through array of key-value pairs and create a property for each - had some guidance with this from stackoverflow
+    // loop through array of key-value pairs and create a property for each 
     for (var i = 0; i < queryString.length; i++) {
         var parts = queryString[i].split('=');
         if (parts.length === 2) {
