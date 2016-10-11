@@ -101,7 +101,8 @@ function checkAnswer(source) {
     }
 }
 
-//this creates the timer
+//this creates the timer - used source below for guidance
+//https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
 function initializeTimer(nodeId, duration) {
     var node = $(nodeId);
     var remainingSeconds = Math.floor((duration / 1000) % 60);
@@ -125,7 +126,7 @@ function initializeTimer(nodeId, duration) {
     }
 }
 
-//open and close modal
+//open and close modal - thank you jQuery UI http://www.tutorialspoint.com/jqueryui/jqueryui_dialog.htm
 function showModal() {
     $('#modal').dialog('open');
 }
@@ -139,7 +140,7 @@ function getQueryStringObject() {
     var queryString = window.location.search.substr(1).split('&');
     var data = {};
 
-    // loop through array of key-value pairs and create a property for each
+    // loop through array of key-value pairs and create a property for each - had some guidance with this from stackoverflow
     for (var i = 0; i < queryString.length; i++) {
         var parts = queryString[i].split('=');
         if (parts.length === 2) {
@@ -161,7 +162,7 @@ function restart() {
 
 //on loading of DOM
 $(function () {
-    //initialize modal
+    //initialize modal -
     $('#modal').dialog({ autoOpen: false, modal: true, width: 600 });
 
     //begin to run 'go' function when ready button clicked
