@@ -1,6 +1,6 @@
 # Roadtrip
 
-Roadtrip Trivia is a single-player true-false trivia game. The object is to get from New York to California, travelling across Route 80.
+Roadtrip Trivia is a single-player true-false trivia game. The object is to get from New York to California, travelling across U.S. Route 80.
 In each state, there is a scheduled 'stop' where the player must answer a trivia question within a specified amount of time or the player
 is returned to start. If the player answers incorrectly, they are also returned to start. 
 
@@ -9,8 +9,9 @@ This project challenged me in many ways - beyond planning, implementation and ti
 include syncing a timer, recreating an existing landing page, and making game responsive.
 
 # TO DO 
-- style landing page with form - flexbox
+- style landing page 
 - game instructions
+- improve overall content and storyline for game
 
 # challenges
 - syncing timers
