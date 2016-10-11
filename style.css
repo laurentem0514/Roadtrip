@@ -39,7 +39,8 @@ form {
     height:100px;
     width:200px;;
     border-radius: 15px;
-    background-color: gray;
+    background-color: lightgray;
+    border: solid .5px gray;
     text-align: center;
     float: right;
     padding:5px;

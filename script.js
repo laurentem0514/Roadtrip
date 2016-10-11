@@ -28,6 +28,7 @@ var carInitialY = 111;
 
 //main function for game logic
 function go() {
+    //if array isn't empty
     if (destinations) {
         //gets first item and removes it from collection
         currentStop = destinations.shift();
@@ -80,6 +81,7 @@ function displayGameState(selector) {
 
 //checks answer and takes parameter of 'who' is using it
 function checkAnswer(source) {
+    //'read' true or false
     var answer = $('input:radio[name=answer]:checked').val();
 
     if (currentStop && answer === currentStop.correctAnswer) {
@@ -122,7 +124,7 @@ function initializeTimer(nodeId, duration) {
 
 //open and close modal
 function showModal() {
-    $('#modal').dialog("open");
+    $('#modal').dialog('open');
 
 }
 
