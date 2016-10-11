@@ -1,11 +1,11 @@
 body{
-    background: url(../images/boardbackground.jpg) repeat;  
+    background: url(images/boardbackground.jpg) repeat;  
 }
 
 .landing-wrapper{
     width: 1200px;
     margin: 0 auto;
-    background-image: url(../images/landing-background.jpg);
+    background-image: url(images/landing-background.jpg);
     height: 800px;
     background-size: 1200px;
     border-radius: 15px;
@@ -73,7 +73,7 @@ form {
     }
 
 .board {
-    background-image: url(../images/Roadtripjourney.png);
+    background-image: url(images/Roadtripjourney.png);
     background-size: 1200px;
     background-repeat: no-repeat;
     width:1200px;
