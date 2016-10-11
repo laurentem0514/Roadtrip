@@ -18,18 +18,22 @@ var destinations = destinationsData.slice(0);
 //other global variables for reuse
 var currentStop;
 var moveSpeed = 1000; // 1sec
-var timeToAnswer = 5000; //5sec
+var timeToAnswer = 10000; //10sec
 var answerTimer;
 var carOffsetX = -30;
 var carOffsetY = -95;
 var carInitialX = 1180;
 var carInitialY = 111;
 
+
+//main function for game logic
 function go() {
     if (destinations) {
+        //gets first item and removes it from collection
         currentStop = destinations.shift();
 
         if (currentStop) {
+            //time to move car, close dialogs before we animate
             closeModal();
 
             //moves car to currentStop based on x,y coords and offset
@@ -37,7 +41,7 @@ function go() {
             var y = currentStop.Y + carOffsetY;
             $('.car').animate({ left: x + 'px', top: y + 'px' }, moveSpeed);
 
-            // Schedule question after move animation is over
+            // Schedule question after move animation is over 
             setTimeout(function () {
                 askQuestion(currentStop);
             }, moveSpeed);
@@ -47,13 +51,14 @@ function go() {
                 checkAnswer('timer');
             }, timeToAnswer + moveSpeed);
         }
-        //if player reaches the end
+        //else no more stops means player has won 
         else {
             displayGameState('#congrats');
         }
     }
 }
 
+//show modal, load question and image based on location, reset input, initialize timer
 function askQuestion(destination) {
     showModal();
     displayGameState('#trivia');
@@ -92,21 +97,22 @@ function checkAnswer(source) {
 }
 
 //this creates the timer
-function initializeTimer(id, duration) {
-    var timer = $(id);
+function initializeTimer(nodeId, duration) {
+    var node = $(nodeId);
     var remainingSeconds = Math.floor((duration / 1000) % 60);
 
-    // display timer
+    // display initial timer value
     if (remainingSeconds > 0) {
-        timer.text('Time Left: ' + remainingSeconds);
+        node.text('Time Left: ' + remainingSeconds);
         remainingSeconds--;
     }
 
-    // schedule timer updates
+    // schedule timer updates every second 
     if (remainingSeconds > 0) {
         var timeinterval = setInterval(function () {
-            timer.text('Time Left: ' + remainingSeconds);
+            node.text('Time Left: ' + remainingSeconds);
             remainingSeconds--;
+            //stop updating timer if remaining seconds is 0
             if (remainingSeconds <= 0) {
                 clearInterval(timeinterval);
             }
@@ -124,13 +130,13 @@ function closeModal() {
     $('#modal').dialog('close');
 }
 
-//for getting form data from url
+//create an object from query string for easy access to keys and values
 function getQueryStringObject() {
     var queryString = window.location.search.substr(1).split('&');
     var data = {};
 
+    // loop through array of key-value pairs and create a property for each
     for (var i = 0; i < queryString.length; i++) {
-        // k=v
         var parts = queryString[i].split('=');
         if (parts.length === 2) {
             var key = parts[0];
@@ -149,6 +155,7 @@ function restart() {
     closeModal();
 }
 
+//on loading of DOM
 $(function () {
     //initialize modal
     $('#modal').dialog({ autoOpen: false, modal: true, width: 600 });
@@ -170,8 +177,6 @@ $(function () {
 
     //event listener for play again button
     $('button.restart').on('click', restart);
-
-
 });
 
 
