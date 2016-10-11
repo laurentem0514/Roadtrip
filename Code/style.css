@@ -23,11 +23,16 @@ body{
     font-family: sans-serif;
 }
 
+form {
+    margin: 75px 75px;
+    display: inline-block;
+}
 
  #mclovin {
     height:270px;
     width:480px;
     border-radius: 20px;
+    margin-right: 100px;
 }
  #nameBox {
     font-family: sans-serif;
@@ -102,3 +107,29 @@ body{
 .gameState {
     display: none;
 }
+
+.tablet {
+     text-align: center;
+     font-size: 32px;
+}
+
+@media (max-device-width: 1024px) {
+      .tablet {
+          display: block;
+      }
+
+      .board {
+          display: none;
+      }
+  }
+
+@media (min-width:1025px) {
+      .tablet {
+          display: none;
+      }
+
+      .board {
+          display: block;
+      }
+    
+     }
