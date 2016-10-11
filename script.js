@@ -84,14 +84,17 @@ function checkAnswer(source) {
     //'read' true or false
     var answer = $('input:radio[name=answer]:checked').val();
 
+    //check answer and change game state
+    // move to next if correct
     if (currentStop && answer === currentStop.correctAnswer) {
-        // move to next
         go();
     }
+    // or you run out of time
     else {
         if (source === 'timer') {
             displayGameState('#timesUp');
         }
+        //or you answered incorrectly
         else {
             displayGameState('#wrongAnswer');
         }
@@ -125,7 +128,6 @@ function initializeTimer(nodeId, duration) {
 //open and close modal
 function showModal() {
     $('#modal').dialog('open');
-
 }
 
 function closeModal() {
