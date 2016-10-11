@@ -63,7 +63,7 @@ function askQuestion(destination) {
     showModal();
     displayGameState('#trivia');
     $('.trivia').text(destination.triviaQuestion);
-    $('#trivia img').attr({ src: '../Images/Stops/' + destination.imageName, alt: destination.name });
+    $('#trivia img').attr({ src: 'images/stops/' + destination.imageName, alt: destination.name });
     $('#trivia input[name="answer"]').prop('checked', false);
 
     //start + display timer
